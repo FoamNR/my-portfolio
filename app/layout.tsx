@@ -16,6 +16,11 @@ export const metadata: Metadata = {
   title: "Nonthawat Ramkongmuang | Software Engineer & Developer",
   description: "Portfolio of Nonthawat Ramkongmuang (Foam) - Software Engineer & Full-Stack Developer specializing in Next.js, React, Flutter, and Node.js.",
   keywords: ["Nonthawat Ramkongmuang", "FoamNR", "Software Engineer", "Web Developer", "Next.js", "Flutter", "Portfolio"],
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
 };
 
 export default function RootLayout({

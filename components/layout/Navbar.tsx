@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import { CodeBracketIcon } from "@/components/icons";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -19,17 +19,10 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 backdrop-blur-md bg-[#131418]/90 border-b border-white/5 transition-all">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         
-        {/* Brand Logo: N DEV + Nonthawat.dev */}
-        <a href="#" className="flex items-center gap-3 group">
-          <div className="relative w-9 h-9 rounded-lg overflow-hidden border border-blue-500/30 group-hover:border-blue-400 group-hover:scale-105 transition-all shadow-[0_0_15px_rgba(59,130,246,0.35)]">
-            <Image
-              src="/logo.png"
-              alt="NDEV Logo"
-              width={72}
-              height={72}
-              priority
-              className="w-full h-full object-cover"
-            />
+        {/* Logo: </> Nonthawat.dev */}
+        <a href="#" className="flex items-center gap-2 group">
+          <div className="text-blue-500 font-bold group-hover:scale-110 transition-transform">
+            <CodeBracketIcon className="w-6 h-6 stroke-[3]" />
           </div>
           <span className="text-white font-extrabold text-xl tracking-tight">
             Nonthawat <span className="text-blue-500">.dev</span>
