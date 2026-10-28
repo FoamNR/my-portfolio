@@ -63,3 +63,10 @@ body {
 .animate-line-expand {
   animation: lineExpand 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* Hide Next.js dev tools floating badge */
+[data-nextjs-dev-tools-button],
+[data-nextjs-toast],
+nextjs-portal [data-next-badge] {
+  display: none !important;
+}
