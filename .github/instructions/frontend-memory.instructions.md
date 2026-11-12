@@ -21,9 +21,11 @@ Patterns, design rules, and performance guidelines for maintaining and extending
 - Interactive elements requiring React state (`useState`, `useEffect`) belong in individual client components marked with `"use client"`, keeping top-level server rendering fast and declarative.
 
 ## Scroll Reveal & Viewport Animations
-- Wrap section cards, headings, and grid items with `<ScrollReveal direction="..." delay={...}>` from `components/ui/ScrollReveal.tsx`.
-- The `IntersectionObserver` in `ScrollReveal` unobserves elements once revealed to minimize main-thread overhead and prevent re-triggering flicker during scrolling.
+- Wrap a whole section's content (once, not each card) with `<ScrollReveal>` from `components/ui/ScrollReveal.tsx`. Short fade-up, no stagger, no blur.
+- Hidden-state classes use the `motion-safe:` variant so reduced-motion users (and no-JS) see content immediately. Keep new animations behind `motion-safe:` too.
+- Hover effects only on elements that are actually clickable; one accent colour (blue) for links/primary actions.
 - Real-time scroll indicator bar is maintained via `components/ui/ScrollProgress.tsx`.
+- For UI/UX reviews or "AI slop" fixes, use the `uxui-deslop` skill in `.claude/skills/`.
 
 ## Zero-Dependency Standalone SVG Icons
 - Maintain standalone SVG icon components in `components/icons/index.tsx`.

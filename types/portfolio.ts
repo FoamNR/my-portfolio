@@ -6,15 +6,27 @@ export interface ContactInfo {
   githubUsername: string;
 }
 
+export interface AboutHighlight {
+  title: string;
+  subtitle: string;
+  desc: string;
+}
+
 export interface Profile {
   name: string;
   nickname: string;
   role: string;
-  headlineTitle: string;
-  headlineSub: string;
+  /** One static positioning line shown under the name in the hero. */
+  positioning: string;
   bio: string;
   aboutSnippet: string;
   workSnippet: string;
+  aboutHeading: string;
+  aboutBody: string;
+  aboutHighlights: AboutHighlight[];
+  availability: string;
+  contactHeading: string;
+  contactBody: string;
   languages: { name: string; level: string }[];
   contact: ContactInfo;
 }
@@ -28,9 +40,12 @@ export interface Project {
   description: string;
   tech: string[];
   badge: string;
-  gradient: string;
+  /** Live demo URL. Card shows a "Live site" link when set. */
   link?: string;
+  /** Source repo URL. Card shows a "Code" link when set. */
   github?: string;
+  /** Screenshot path under /public, e.g. "/projects/linebot.png". Shown as the card header when set. */
+  image?: string;
 }
 
 export interface ExperienceItem {
@@ -39,7 +54,6 @@ export interface ExperienceItem {
   organization: string;
   period: string;
   descriptionItems: string[];
-  accentColor: "blue" | "indigo" | "emerald" | "teal";
 }
 
 export interface EducationItem {
@@ -47,7 +61,6 @@ export interface EducationItem {
   institution: string;
   period: string;
   highlights: string[];
-  accentColor: "emerald" | "teal";
 }
 
 export interface CompetitionItem {
@@ -59,7 +72,5 @@ export interface CompetitionItem {
 
 export interface SkillCategory {
   title: string;
-  colorClass: string;
   skills: string[];
 }
-

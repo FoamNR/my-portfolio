@@ -39,29 +39,10 @@ body {
   background: #3b82f6;
 }
 
-/* Custom keyframes for hero animations */
-@keyframes cursorBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-.animate-cursor {
-  animation: cursorBlink 0.9s infinite;
-}
-
-@keyframes lineExpand {
-  0% {
-    width: 0px;
-    opacity: 0;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-  100% {
-    width: 4rem;
-    opacity: 1;
-  }
-}
-
-.animate-line-expand {
-  animation: lineExpand 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Hide Next.js dev tools floating badge */

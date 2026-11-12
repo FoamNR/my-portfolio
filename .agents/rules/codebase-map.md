@@ -16,11 +16,11 @@
   - `components/icons/` - Reusable lightweight SVG icon components (`index.tsx`)
   - `components/layout/` - Layout components (`Navbar.tsx`, `Footer.tsx`)
   - `components/sections/` - Self-contained sections:
-    - `Hero.tsx` - Main banner with cutout portrait & Developer X layout
-    - `About.tsx` - Bio, stats & highlights
-    - `Experience.tsx` - Work experience, education & hackathons
-    - `Projects.tsx` - Filterable project cards showcase
-    - `Skills.tsx` - Technical stack & categories
+    - `Hero.tsx` - Main banner with cutout portrait & Developer X layout (server component, static text)
+    - `About.tsx` - Bio, languages/status & highlight facts (all text from `profileData`)
+    - `Experience.tsx` - Work & education timelines, competitions table
+    - `Projects.tsx` - Filterable, text-first project cards; shows `image`/`link`/`github` when set in data
+    - `Skills.tsx` - Compact category → skills list
     - `Contact.tsx` - Direct call-to-actions & contact info
 - `data/` - Single source of truth for portfolio content
   - `data/portfolio.ts` - All profile details, projects, timeline, skills, and contact info

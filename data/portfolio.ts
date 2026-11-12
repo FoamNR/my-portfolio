@@ -1,17 +1,48 @@
 import { Profile, Project, ExperienceItem, EducationItem, CompetitionItem, SkillCategory } from "@/types/portfolio";
 
+// Years use the Gregorian calendar everywhere, since the page is in English.
+
 export const profileData: Profile = {
   name: "Nonthawat Ramkongmuang",
   nickname: "Foam",
-  role: "Software Engineer / Developer",
-  headlineTitle: "I'm Nonthawat,",
-  headlineSub: "a Software Developer",
-  bio: "Adaptable Software Developer experienced across web and mobile development with Flutter, React, Next.js, and Node.js. Ready to build efficient, scalable solutions.",
-  aboutSnippet: "Graduated with a Bachelor of Science in Computer Science from Pibulsongkram Rajabhat University. Actively participating in tech hackathons & full-stack software development.",
-  workSnippet: "Experience developing LINE Bot automated ticketing systems, full-stack booking platforms, community platforms, and mobile apps with Flutter & Nuxt.js.",
+  role: "Software Developer",
+  positioning: "I build web apps, LINE bots and Flutter apps.",
+  bio: "CS graduate (2026) from Phitsanulok. I've shipped a LINE bot for reporting broken lab computers, a sports venue booking system and a temple website for real users, mostly in PHP, Node.js and Flutter.",
+  aboutSnippet: "B.Sc. Computer Science, Pibulsongkram Rajabhat University (2026). Interned at CITCOMS, Naresuan University.",
+  workSnippet: "Freelance LINE bot and booking systems, a Nuxt + Express platform from my internship, and a Flutter app for my senior project.",
+  aboutHeading: "Small, useful systems for real people",
+  aboutBody:
+    "Most of what I've built started with someone who had a specific problem: students who needed a quicker way to report broken lab computers, a sports venue that wanted online bookings, a temple that wanted its announcements online. I usually work in PHP and MySQL or Node.js, and use Nuxt or Flutter when a project needs them. Right now I'm looking for a junior web or mobile developer role.",
+  aboutHighlights: [
+    {
+      title: "Top 8",
+      subtitle: "PSRU Cyber Hackathon 2026",
+      // TODO(owner): if you know the field size, write "8th of N teams".
+      desc: "My second time at this hackathon. In 2024 I took part; in 2026 I placed in the top 8, finding and assessing software vulnerabilities.",
+    },
+    {
+      title: "B.Sc. CS",
+      subtitle: "Pibulsongkram Rajabhat University, 2022–2026",
+      desc: "Senior project: a Flutter and Node.js app for announcements and services in a smart village.",
+    },
+    {
+      title: "Intern",
+      subtitle: "CITCOMS, Naresuan University, 2025–2026",
+      desc: "Supported the university's information systems and built the Local Wisdom artisan platform in Nuxt, Express and PostgreSQL.",
+    },
+    {
+      title: "Freelance",
+      subtitle: "2026 – now",
+      desc: "Three client projects so far, all PHP and MySQL. The LINE bot also uses LIFF and the Messaging API.",
+    },
+  ],
+  availability: "Looking for a junior web / mobile role",
+  contactHeading: "Get in touch",
+  contactBody:
+    "I'm looking for a junior role in web or mobile development, and I take on small freelance projects. Email is the fastest way to reach me.",
   languages: [
     { name: "Thai", level: "Native" },
-    { name: "English", level: "Basic Professional" },
+    { name: "English", level: "Basic professional" },
   ],
   contact: {
     email: "Foamnonthawat@gmail.com",
@@ -22,158 +53,135 @@ export const profileData: Profile = {
   },
 };
 
+// TODO(owner): add `image` (screenshot in /public/projects/), `link` and `github`
+// for each project. Cards show them automatically once they're set.
 export const projectsData: Project[] = [
-  {
-    title: "Smart Village Mobile App",
-    category: "mobile",
-    role: "Senior Project (2025)",
-    description: "Mobile application built for internal community communication, announcement broadcasts, and localized service management.",
-    tech: ["Flutter", "Node.js", "RESTful API"],
-    badge: "Mobile App",
-    gradient: "from-blue-600 via-indigo-700 to-slate-900",
-  },
   {
     title: "Computer Lab Issue Reporting LINE Bot",
     category: "web",
-    role: "Freelance Developer (2569 - Present)",
-    description: "Automated issue tracking system integrating LINE Messaging API and LINE LIFF with a PHP MVC backend, enabling instant incident logging for students and real-time alerts for admins.",
+    role: "Freelance, 2026 – now",
+    description:
+      "Students report a broken lab computer from LINE in a few taps; admins get the report instantly. Built on LINE LIFF and the Messaging API with a PHP MVC backend.",
     tech: ["LINE LIFF", "Messaging API", "PHP (MVC)", "MySQL"],
-    badge: "LINE Bot / Web",
-    gradient: "from-emerald-600 via-teal-700 to-slate-900",
-  },
-  {
-    title: "Local Wisdom Artisan Web Platform",
-    category: "web",
-    role: "CITCOMS Internship (2568 - 2569)",
-    description: "Full-stack web platform built at Naresuan University to digitize, manage, and map local artisan profiles and cultural heritage products across the region.",
-    tech: ["Nuxt.js", "Express.js", "PostgreSQL"],
-    badge: "Full-Stack Web",
-    gradient: "from-blue-700 via-cyan-800 to-slate-900",
+    badge: "LINE Bot",
   },
   {
     title: "Sports Venue Booking System",
     category: "web",
-    role: "Freelance Project",
-    description: "Architected full-stack web application featuring role-based dashboards, slot scheduling, and automated reservation management.",
-    tech: ["PHP", "MySQL", "Responsive Frontend"],
-    badge: "Web Application",
-    gradient: "from-purple-600 via-indigo-800 to-slate-900",
+    role: "Freelance",
+    description:
+      "Online booking for a sports venue: customers pick a time slot, staff manage reservations from their own dashboard.",
+    tech: ["PHP", "MySQL"],
+    badge: "Web app",
   },
   {
-    title: "Wat Kung Waree Information Platform",
+    title: "Local Wisdom Artisan Platform",
     category: "web",
-    role: "Freelance Project",
-    description: "Responsive informational portal and content management system with REST APIs to streamline community announcements and cultural records.",
-    tech: ["PHP", "MySQL", "REST APIs"],
-    badge: "Web Platform",
-    gradient: "from-amber-600 via-orange-800 to-slate-900",
+    role: "Internship, CITCOMS 2025–2026",
+    description:
+      "A platform at Naresuan University for recording local artisans and their products, and showing where they are on a map.",
+    tech: ["Nuxt.js", "Express.js", "PostgreSQL"],
+    badge: "Full-stack web",
+  },
+  {
+    title: "Wat Kung Waree Website",
+    category: "web",
+    role: "Freelance",
+    description: "Announcements and records for the temple community, with a small admin backend and REST API.",
+    tech: ["PHP", "MySQL", "REST API"],
+    badge: "Website",
+  },
+  {
+    title: "Smart Village Mobile App",
+    category: "mobile",
+    role: "Senior project, 2025",
+    description: "A Flutter app for village announcements and local services, backed by a Node.js API.",
+    tech: ["Flutter", "Node.js", "REST API"],
+    badge: "Mobile app",
   },
   {
     title: "PSRU Cyber Hackathon 2026",
     category: "competition",
     role: "Competitor",
-    description: "Competitive software vulnerability identification, penetration testing, and secure code analysis — Achieved Top 8 ranking.",
-    tech: ["Cybersecurity", "Vulnerability Assessment", "Ethical Hacking"],
-    badge: "Ranked Top 8",
-    gradient: "from-red-600 via-rose-800 to-slate-900",
+    description: "Finding and assessing vulnerabilities in software under time pressure. Placed in the top 8.",
+    tech: ["Vulnerability assessment", "Secure code review"],
+    badge: "Top 8",
   },
 ];
 
+// Project details live in the Projects section; experience lists what I did, briefly.
 export const experienceData: ExperienceItem[] = [
   {
-    title: "Full Stack Developer",
-    roleType: "Freelance Developer",
-    organization: "Freelance",
-    period: "2569 – Present (2026)",
-    accentColor: "blue",
+    title: "Freelance Developer",
+    roleType: "Freelance",
+    organization: "Self-employed",
+    period: "2026 – now",
     descriptionItems: [
-      "Computer Lab Issue Reporting LINE Bot: Developed an automated incident tracking system integrating LINE Messaging API and LINE LIFF with a PHP MVC and MySQL backend, enabling instant incident logging for students and real-time alerts for administrators.",
-      "Sports Venue Booking System: Architected and developed a full-stack web application using PHP, MySQL, and responsive front-end tools, featuring role-based dashboards, slot scheduling, and automated reservation management.",
-      "Wat Kung Waree Information Platform: Built and deployed a responsive informational portal with REST APIs and MySQL for community announcements and records.",
+      "Built and handed over three systems for clients: a LINE bot for lab issue reports, a sports venue booking system and a temple website.",
+      "Handled everything from requirements to deployment, mostly in PHP and MySQL.",
     ],
   },
   {
     title: "Information Systems Intern",
     roleType: "Internship",
     organization: "CITCOMS, Naresuan University",
-    period: "2568 – 2569 (2025 – 2026)",
-    accentColor: "indigo",
+    period: "2025 – 2026",
     descriptionItems: [
-      "Contributed to the development, support, and maintenance of university information systems.",
-      "Local Wisdom Artisan Web Platform: Developed a full-stack web application leveraging Nuxt.js, Express.js, and PostgreSQL to digitize, manage, and map local artisan profiles and cultural heritage products.",
+      "Supported and maintained the university's information systems.",
+      "Built the Local Wisdom artisan platform (Nuxt.js, Express.js, PostgreSQL).",
     ],
   },
 ];
 
 export const educationData: EducationItem[] = [
   {
-    degree: "Bachelor of Science in Computer Science",
+    degree: "B.Sc. Computer Science",
     institution: "Pibulsongkram Rajabhat University",
-    period: "2565 – 2569 (2022 – 2026)",
-    accentColor: "emerald",
-    highlights: [
-      "Senior Project: Developed a Mobile Application for Smart Village Communication and Management using Flutter and Node.js.",
-      "Actively participated in national technology competitions and cybersecurity hackathons.",
-    ],
+    period: "2022 – 2026",
+    highlights: ["Senior project: Smart Village mobile app (Flutter, Node.js)."],
   },
   {
-    degree: "Vocational Certificate in Business Computer",
+    degree: "Vocational Certificate, Business Computer",
     institution: "Phichit Technical College",
-    period: "2562 – 2564 (2019 – 2021)",
-    accentColor: "teal",
-    highlights: [
-      "Graduate Project: Designed and developed the Sak Lek District Tourism Information Website.",
-    ],
+    period: "2019 – 2021",
+    highlights: ["Graduate project: tourism information website for Sak Lek District."],
   },
 ];
 
 export const competitionsData: CompetitionItem[] = [
   {
     title: "PSRU Cyber Hackathon 2026",
-    desc: "Software vulnerability identification & assessment",
-    result: "Ranked Top 8",
+    desc: "Vulnerability identification & assessment",
+    result: "Top 8",
     highlight: true,
   },
   {
     title: "PSRU Cyber Hackathon 2024",
-    desc: "Vulnerability assessment & ethical hacking challenges",
+    desc: "Vulnerability assessment challenges",
     result: "Participant",
   },
   {
     title: "The Metaverse Camp 2022",
-    desc: "Trained in VR development & metaverse project concepts",
-    result: "Trained",
+    desc: "VR development training",
+    result: "Completed",
   },
 ];
 
 export const skillCategoriesData: SkillCategory[] = [
   {
-    title: "Frontend Development",
-    colorClass: "text-blue-400",
-    skills: ["React.js", "Next.js", "Vue.js", "Nuxt.js", "Flutter", "React Native", "JavaScript", "HTML5 / CSS3"],
+    title: "Frontend & mobile",
+    skills: ["React", "Next.js", "Vue.js", "Nuxt.js", "Flutter", "React Native", "JavaScript", "HTML / CSS"],
   },
   {
-    title: "Backend & Database",
-    colorClass: "text-emerald-400",
-    skills: ["Node.js", "Express.js", "RESTful API", "PHP", "C#.NET", "PostgreSQL", "MySQL"],
+    title: "Backend & database",
+    skills: ["Node.js", "Express.js", "PHP", "C#/.NET", "REST APIs", "PostgreSQL", "MySQL"],
   },
   {
-    title: "AI & Developer Tools",
-    colorClass: "text-indigo-400",
-    skills: ["ChatGPT", "Claude", "Gemini", "Antigravity", "QwenAI", "Docker", "Git / GitHub", "Postman", "VS Code"],
+    title: "Integrations",
+    skills: ["LINE Messaging API", "LINE LIFF"],
   },
   {
-    title: "Key Strengths & Languages",
-    colorClass: "text-amber-400",
-    skills: [
-      "Problem Solving",
-      "Collaborative Teamwork",
-      "Continuous Learning",
-      "Cybersecurity Basics",
-      "LINE API & LIFF",
-      "Thai (Native)",
-      "English (Basic)",
-    ],
+    title: "Tools",
+    skills: ["Git / GitHub", "Docker", "Postman", "VS Code"],
   },
 ];
-

@@ -9,22 +9,18 @@ export default function ScrollProgress() {
     const handleScroll = () => {
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
       if (totalHeight > 0) {
-        const currentProgress = (window.scrollY / totalHeight) * 100;
-        setScrollProgress(Math.min(100, Math.max(0, currentProgress)));
+        setScrollProgress(Math.min(100, Math.max(0, (window.scrollY / totalHeight) * 100)));
       }
     };
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 w-full h-[3px] z-[100] bg-transparent pointer-events-none">
-      <div
-        className="h-full bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-400 transition-[width] duration-150 ease-out shadow-[0_0_8px_rgba(59,130,246,0.8)]"
-        style={{ width: `${scrollProgress}%` }}
-      />
+    <div className="fixed top-0 left-0 w-full h-[2px] z-[100] pointer-events-none" aria-hidden>
+      <div className="h-full bg-blue-500" style={{ width: `${scrollProgress}%` }} />
     </div>
   );
 }
-

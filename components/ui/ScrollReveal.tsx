@@ -4,85 +4,45 @@ import { useEffect, useRef, useState, ReactNode } from "react";
 
 interface ScrollRevealProps {
   children: ReactNode;
-  direction?: "up" | "down" | "left" | "right" | "fade";
-  delay?: number;
-  duration?: number;
   className?: string;
   threshold?: number;
 }
 
-export default function ScrollReveal({
-  children,
-  direction = "up",
-  delay = 0,
-  duration = 700,
-  className = "",
-  threshold = 0.12,
-}: ScrollRevealProps) {
+/**
+ * Fades a section in once when it scrolls into view.
+ * The hidden state uses `motion-safe:` so people who prefer reduced motion
+ * see the content immediately, without waiting for JavaScript.
+ */
+export default function ScrollReveal({ children, className = "", threshold = 0.1 }: ScrollRevealProps) {
   const [isVisible, setIsVisible] = useState(false);
   const domRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const node = domRef.current;
+    if (!node) return;
+
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            if (domRef.current) {
-              observer.unobserve(domRef.current);
-            }
-          }
-        });
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
       },
-      {
-        threshold,
-        rootMargin: "0px 0px -40px 0px",
-      }
+      { threshold, rootMargin: "0px 0px -40px 0px" }
     );
 
-    const currentRef = domRef.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
+    observer.observe(node);
+    return () => observer.disconnect();
   }, [threshold]);
-
-  const getInitialTransform = () => {
-    switch (direction) {
-      case "up":
-        return "translate-y-10";
-      case "down":
-        return "-translate-y-10";
-      case "left":
-        return "translate-x-10";
-      case "right":
-        return "-translate-x-10";
-      case "fade":
-      default:
-        return "translate-y-0";
-    }
-  };
 
   return (
     <div
       ref={domRef}
-      style={{
-        transitionDuration: `${duration}ms`,
-        transitionDelay: `${delay}ms`,
-      }}
-      className={`transition-all ease-[cubic-bezier(0.16,1,0.3,1)] ${
-        isVisible
-          ? "opacity-100 translate-x-0 translate-y-0 filter-none"
-          : `opacity-0 ${getInitialTransform()} blur-[1px]`
+      className={`motion-safe:transition-[opacity,transform] motion-safe:duration-500 motion-safe:ease-out ${
+        isVisible ? "opacity-100 translate-y-0" : "motion-safe:opacity-0 motion-safe:translate-y-4"
       } ${className}`}
     >
       {children}
     </div>
   );
 }
-
