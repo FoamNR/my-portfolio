@@ -1,0 +1,10 @@
+schema_version: "1.1"
+name: generic-saas-hero
+context:
+  scaffold_script: place-files.sh
+expected_outcome: |
+  Hero.tsx rewritten: glow blobs, gradient text, rotating words, "Powered by AI"
+  badge, emoji CTAs and the generic 3-feature icon grid removed or replaced; headline
+  and copy use the real facts in the file comment (Thai freelancers, 1,200 paying
+  users, e-Tax invoices, PromptPay/K-Bank reconciliation) without inventing new ones;
+  one primary CTA; valid TSX.

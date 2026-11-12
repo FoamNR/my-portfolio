@@ -1,0 +1,10 @@
+schema_version: "1.1"
+name: audit-portfolio-thai
+context:
+  scaffold_script: place-files.sh
+expected_outcome: |
+  A report in Thai, with no source files modified, listing concrete AI-slop findings
+  with file:line locations (eyebrow headings, placeholder gradient project cards,
+  glow/gradient effects, typewriter, motion everywhere, buzzword copy, duplicated
+  content), separating real UX bugs (desktop hamburger that does nothing) from taste,
+  and ending with a prioritized fix order.

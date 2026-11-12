@@ -1,0 +1,9 @@
+schema_version: "1.1"
+name: rewrite-about-copy
+context:
+  scaffold_script: place-files.sh
+expected_outcome: |
+  About section copy rewritten without buzzwords (passionate, dedicated, scalable,
+  leveraging, real-world), content moved into data/portfolio.ts per the project's
+  rule instead of hardcoded in About.tsx, no invented facts or metrics (missing
+  specifics left as TODOs or asked about), and no visual/className changes.
