@@ -15,6 +15,11 @@ FROM base AS builder
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+# Public site URL for canonical/Open Graph/sitemap. Baked in at build time
+# because the page is prerendered. Pass with: --build-arg SITE_URL=https://your-domain
+ARG SITE_URL
+ENV SITE_URL=$SITE_URL
+
 # Set environment variables for build
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production

@@ -48,10 +48,12 @@ export default function Hero() {
           <div className="relative w-[300px] sm:w-[380px] lg:w-[460px] aspect-[4/5] flex items-end justify-center">
             <Image
               src="/profile.png"
-              alt={profileData.name}
-              width={700}
-              height={875}
-              priority
+              alt={`Portrait of ${profileData.name}`}
+              width={888}
+              height={1024}
+              sizes="(min-width: 1024px) 460px, (min-width: 640px) 380px, 300px"
+              loading="eager"
+              fetchPriority="high"
               className="w-full h-auto object-contain object-bottom"
             />
           </div>

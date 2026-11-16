@@ -3,6 +3,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        # Set to the public domain, e.g. SITE_URL=https://example.com docker compose up -d --build
+        - SITE_URL=${SITE_URL:-http://localhost:3000}
     container_name: nonthawat-portfolio
     restart: unless-stopped
     ports:
